@@ -77,7 +77,7 @@ class Model:
         
         return prediction
 
-#To remove
+#To remove if using website
 if __name__ == "__main__":
     # randomized attributes 
     gill_attachmentR = ['a', 'd', 'f','n']

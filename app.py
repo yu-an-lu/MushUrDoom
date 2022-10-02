@@ -10,7 +10,7 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/predict')
+@app.route('/predict', methods=['GET'])
 def predict():
     # randomized attributes 
     gill_attachmentR = ['a', 'd', 'f','n']

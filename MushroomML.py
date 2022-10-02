@@ -66,44 +66,40 @@ class Model:
         
         return dt
     
-    def predict(self, data):
+    def getStatus(self, data):
         # encode data
         labelencoder=LabelEncoder()
         data = labelencoder.fit_transform(data)
         
         # predicts
-        prediction = self.dt.predict(data)
+        prediction = self.dt.predict([data])[0]
         
         return prediction
 
 # To remove
-if __name__ == "__main__":
-    data = {'cap-shape': 'b', 'cap-surface': 'f', 
-            'cap-color': 'n', 'bruises': 't', 'odor': 'p',
-            'gill-attachment': 'a', 'gill-spacing': 'd',
-            'gill-size': 'n', 'gill-color': 'w',
-            'stalk-shape': 't', 'stalk-root': 'b',
-            'stalk-surface-above-ring': 'f',
-            'stalk-surface-below-ring': 'k',
-            'stalk-color-above-ring': 'g',
-            'stalk-color-below-ring': 'o',
-            'veil-color': 'w', 'ring-number': 'o',
-            'ring-type': 'l', 'spore-print-color': 'r',
-            'population': 'c', 'habitat': 'd'}
+# if __name__ == "__main__":
+#     data = {'cap-shape': 'x', 'cap-surface': 's', 
+#             'cap-color': 'n', 'bruises': 't', 'odor': 'p',
+#             'gill-attachment': 'f', 'gill-spacing': 'c',
+#             'gill-size': 'n', 'gill-color': 'k',
+#             'stalk-shape': 'e', 'stalk-root': 'e',
+#             'stalk-surface-above-ring': 's',
+#             'stalk-surface-below-ring': 's',
+#             'stalk-color-above-ring': 'w',
+#             'stalk-color-below-ring': 'w',
+#             'veil-color': 'w', 'ring-number': 'o',
+#             'ring-type': 'p', 'spore-print-color': 'k',
+#             'population': 's', 'habitat': 'u'}
     
-    data_ar = []
+#     data_ar = []
     
-    # get prediction
-    for key, value in data.items():
-        data_ar.append(value)
-    
-    labelencoder=LabelEncoder()
-    
-    data_ar = labelencoder.fit_transform(data_ar)
+#     # get prediction
+#     for key, value in data.items():
+#         data_ar.append(value)
 
-    # use trained decision tree
-    model = Model()
-    prediction = model.predict(data_ar)
+#     # use trained decision tree
+#     model = Model()
+#     prediction = model.getStatus(data_ar)
     
-    # return prediction
-    print(prediction)
+#     # return prediction
+#     print(prediction)

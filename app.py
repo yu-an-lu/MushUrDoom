@@ -48,13 +48,15 @@ def predict():
             'ring-type': ring_type, 'spore-print-color': spore_print_color,
             'population': population, 'habitat': habitat}
     
-    # get prediction
-    labelencoder=LabelEncoder()
-    data = labelencoder.fit_transform(data)
+    data_ar = []
     
+    # get prediction
+    for key, value in data.items():
+        data_ar.append(value)
+
     # use trained decision tree
     model = Model()
-    prediction = model.predict(data)
+    prediction = model.getStatus(data_ar)
     
     # return prediction
     return prediction

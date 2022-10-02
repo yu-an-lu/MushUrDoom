@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from sklearn.preprocessing import LabelEncoder
 from MushroomML import Model
+import random 
 
 # Create a Flask instance
 app = Flask(__name__)
@@ -11,29 +12,42 @@ def index():
 
 @app.route('/predict')
 def predict():
+    # randomized attributes 
+    gill_attachmentR = ['a', 'd', 'f','n']
+    gill_spacingR = ['c', 'w', 'd']
+    gill_sizeR = ['b', 'n']
+    stalk_shapeR = ['e', 't']
+    stalk_rootR = ['b', 'c', 'u', 'e', 'z', 'r']
+    stalk_surfaceR = ['f','y','k','s'] #use for above and below
+    stalk_colorR = ['n','b','c','g','o','p','e','w','y'] #use for above and below
+    veil_colorR = ['n','o','w','y']
+    ring_numberR = ['n' 'o', 't']
+    ring_typeR = ['c','e','f','l','n','p','s','z']
+    spore_print_colorR = ['k','n','b','h','r','o','u','w','y']
+    habitatR = ['g','l','m','p','u','w','d']
+
     # attributes
     cap_shape = request.args.get('cap_shape')
     cap_surface = request.args.get('cap_surface')
     cap_color = request.args.get('cap_color')
     bruises = request.args.get('bruises')
     odor = request.args.get('odor')
-    gill_attach = request.args.get('gill_attach')
-    gill_space = request.args.get('gill_space')
-    gill_size = request.args.get('gill_size')
+    gill_attach = random.choice(gill_attachmentR) #Randomized 
+    gill_space = random.choice(gill_spacingR) #Randomized 
+    gill_size = random.choice(gill_sizeR) #Randomized 
     gill_color = request.args.get('gill_color')
-    stalk_shape = request.args.get('stalk_shape')
-    stalk_root = request.args.get('stalk_root')
-    stalk_surface_above = request.args.get('stalk_surface_above')
-    stalk_surface_below = request.args.get('stalk_surface_below')
-    stalk_color_above = request.args.get('stalk_color_above')
-    stalk_color_below = request.args.get('stalk_color_below')
-    veil_color = request.args.get('veil_color')
-    ring_number = request.args.get('ring_number')
-    ring_type = request.args.get('ring_type')
-    spore_print_color = request.args.get('spore_print_color')
+    stalk_shape = random.choice(stalk_shapeR) #Randomized 
+    stalk_root = random.choice(stalk_rootR) #Randomized 
+    stalk_surface_above = random.choice(stalk_surfaceR) #Randomized 
+    stalk_surface_below = random.choice(stalk_surfaceR) #Randomized 
+    stalk_color_above = random.choice(stalk_colorR) #Randomized 
+    stalk_color_below = random.choice(stalk_colorR) #Randomized 
+    veil_color = random.choice(veil_colorR) #Randomized 
+    ring_number = random.choice(ring_numberR) #Randomized 
+    ring_type = random.choice(ring_typeR) #Randomized 
+    spore_print_color = random.choice(spore_print_colorR) #Randomized 
     population = request.args.get('population')
-    habitat = request.args.get('habitat')
-    
+    habitat = random.choice(habitatR) #Randomized 
     
     data = {'cap-shape': cap_shape, 'cap-surface': cap_surface, 
             'cap-color': cap_color, 'bruises': bruises, 'odor': odor,

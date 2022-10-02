@@ -4,6 +4,7 @@ import numpy as np
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
+import random 
 # import os
 # import matplotlib.pyplot as plt
 # import seaborn as sns
@@ -81,3 +82,27 @@ class Model:
     
 #     # return prediction
 #     print(prediction)
+
+# if __name__ == "__main__":
+    
+#     # initializing list
+#     gill_attachment = ['a', 'd', 'f','n']
+#     gill_spacing = ['c', 'w', 'd']
+#     gill_size = ['b', 'n']
+#     stalk_shape = ['e', 't']
+#     stalk_root = ['b', 'c', 'u', 'e', 'z', 'r']
+#     stalk_surface = ['f','y','k','s'] #use for above and below
+#     stalk_color = ['n','b','c','g','o','p','e','w','y'] #use for above and below
+#     veil_color = ['n','o','w','y']
+#     ring_number = ['n' 'o', 't']
+#     ring_type = ['c','e','f','l','n','p','s','z']
+#     spore_print_color = ['k','n','b','h','r','o','u','w','y']
+#     habitat = ['g','l','m','p','u','w','d']
+    
+#     # using random.choice() to
+#     # get a random number
+#     random_num = random.choice(habitat)
+#     print(type(random_num))
+    
+#     # printing random number
+#     print("Random selected number is : " + random_num)

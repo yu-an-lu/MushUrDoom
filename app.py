@@ -53,7 +53,7 @@ def predict():
     data = labelencoder.fit_transform(data)
     
     # use trained decision tree
-    model = Model.__init__()
+    model = Model()
     prediction = model.predict(data)
     
     # return prediction

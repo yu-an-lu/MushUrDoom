@@ -1,12 +1,12 @@
 from tkinter import Y
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import numpy as np
-# import os
-# import matplotlib.pyplot as plt
-# import seaborn as sns
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
+# import os
+# import matplotlib.pyplot as plt
+# import seaborn as sns
 
 #Source for the ML code: https://www.milindsoorya.com/blog/mushroom-dataset-analysis-and-classification-python
 
@@ -78,4 +78,32 @@ class Model:
 
 # To remove
 if __name__ == "__main__":
+    data = {'cap-shape': 'b', 'cap-surface': 'f', 
+            'cap-color': 'n', 'bruises': 't', 'odor': 'p',
+            'gill-attachment': 'a', 'gill-spacing': 'd',
+            'gill-size': 'n', 'gill-color': 'w',
+            'stalk-shape': 't', 'stalk-root': 'b',
+            'stalk-surface-above-ring': 'f',
+            'stalk-surface-below-ring': 'k',
+            'stalk-color-above-ring': 'g',
+            'stalk-color-below-ring': 'o',
+            'veil-color': 'w', 'ring-number': 'o',
+            'ring-type': 'l', 'spore-print-color': 'r',
+            'population': 'c', 'habitat': 'd'}
+    
+    data_ar = []
+    
+    # get prediction
+    for key, value in data.items():
+        data_ar.append(value)
+    
+    labelencoder=LabelEncoder()
+    
+    data_ar = labelencoder.fit_transform(data_ar)
+
+    # use trained decision tree
     model = Model()
+    prediction = model.predict(data_ar)
+    
+    # return prediction
+    print(prediction)
